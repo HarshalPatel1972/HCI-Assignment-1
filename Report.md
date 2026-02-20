@@ -7,10 +7,8 @@ Recognizing that clinical staff interact with software across drastically differ
 2. **Tablet View (Bedside Care):** Restructures the grid into larger, touch-friendly rows. When doctors are physically at the bedside reviewing a patient's chart, the interface provides appropriately sized hit targets mapping to rapid clinical workflows.
 3. **Wearable/Mobile View (On-Call Alerts):** Condenses flawlessly into a vertical flex layout. It prioritizes immediate, actionable critical alerts at the very top of the viewport, stacking individual patient cards so that a doctor rushing down a hallway can process a single patient's deep dive using only one hand, completely eliminating horizontal scrolling.
 
-<div class="img-container">
-  <img src="Desktop.png" alt="Desktop View">
-  <em>Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.</em>
-</div>
+![Desktop View](Desktop.png)
+*Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.*
 
 ---
 
@@ -31,10 +29,8 @@ The interface mitigates heavy reliance on short-term working memory by comprehen
 ### Reasoning and Problem Solving Acceleration
 Rapid decision-making under intense pressure is supported by establishing visual contextual bounds. Vitals numbers dynamically alter their color the exact millisecond they cross mathematically defined safe thresholds (e.g., an HR > 130 bpm instantly turns bright red). This computationally handles the "pattern recognition" workload, empowering doctors to skip the data-interpretation phase and jump directly into the reasoning and triage phase. Furthermore, by grouping associated metrics intrinsically (visualizing NIBP directly adjacent to SpO2), clinicians can rapidly deduce whether a patient is hypotensive and hypoxic simultaneously, forming a holistic clinical picture in seconds rather than cross-referencing multiple disparate charts.
 
-<div class="img-container">
-  <img src="Tab.png" alt="Tablet View">
-  <em>Figure 2: Responsive Tablet View, demonstrating clustered information.</em>
-</div>
+![Tablet View](Tab.png)
+*Figure 2: Responsive Tablet View, demonstrating clustered information.*
 
 ---
 
@@ -54,12 +50,10 @@ In an ICU context, blocking the main UI thread with heavy rendering can critical
 ### Network Reliability Simulation and Fail-Safes
 Hospitals frequently suffer from spotty Wi-Fi networks in structurally dense zones, such as deep Radiology wings or Basement Wards. 
 * **The "Simulate Offline" Protocol:** The dashboard includes an overt offline simulation toggle to demonstrate graceful degradation. When the network connection drops, the UI explicitly grays out (opacity drops and CSS grayscale filters are applied), halting animations.
-* **Crucial Software Medical Safety:** This fulfills a critical FDA/medical software constraint: a clinician must *never* make critical decisions assuming vitals are real-time when the connection has actually stalled. The system safely handles asynchronous data loss, visually warning the user that data is "Frozen," rather than quietly displaying stale, potentially fatal numbers.
+* **Crucial Software Medical Safety:** This fulfills a critical FDA/medical software constraint: a clinician must **never** make critical decisions assuming vitals are real-time when the connection has actually stalled. The system safely handles asynchronous data loss, visually warning the user that data is "Frozen," rather than quietly displaying stale, potentially fatal numbers.
 
-<div class="img-container">
-  <img src="Mobile.png" alt="Wearable View">
-  <em>Figure 3: Wearable/Mobile constraints with visible "System Offline" safety state active.</em>
-</div>
+![Wearable View](Mobile.png)
+*Figure 3: Wearable/Mobile constraints with visible "System Offline" safety state active.*
 
 ---
 
@@ -67,7 +61,7 @@ Hospitals frequently suffer from spotty Wi-Fi networks in structurally dense zon
 To polish the user interface from a functional prototype into a professional-grade medical application, several enhancements were driven by established HCI models and ergonomic principles to ensure an exemplary, frictionless user experience.
 
 ### HCI Models Applied
-* **GOMS Model (Goals, Operators, Methods, Selection Rules):** The primary operating goal of a clinician approaching a generic monitor is usually: "Find out who needs help right now." By implementing a top-level, sticky "Critical Alert Banner" that spans the entire width of the display and counts the number of critical patients, the *Method* length to identify a critical situation drops to a single visual operation. This successfully bypasses the need to linearly and exhaustively scan 20+ individual grid cards to find the anomaly.
+* **GOMS Model (Goals, Operators, Methods, Selection Rules):** The primary operating goal of a clinician approaching a generic monitor is usually: "Find out who needs help right now." By implementing a top-level, sticky "Critical Alert Banner" that spans the entire width of the display and counts the number of critical patients, the **Method** length to identify a critical situation drops to a single visual operation. This successfully bypasses the need to linearly and exhaustively scan 20+ individual grid cards to find the anomaly.
 
 ### Ergonomic Principles and Interaction Design
 * **Visual Ergonomics against Eye Strain:** Constant exposure to glaring white screens causes severe eye fatigue and "visual snow" for night-shift clinicians working 12-hour rotations. Our deliberate implementation of a Deep Space Dark theme (`#0f172a` base colors) heavily reduces blue-light emission and actively combats eye strain while maintaining WCAG contrast ratios for the brightly colored vitals.

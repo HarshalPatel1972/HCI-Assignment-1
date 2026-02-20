@@ -47,20 +47,29 @@
       max-width: 100%; 
       border: 1px solid #e2e8f0; 
       border-radius: 8px; 
-      margin: 25px 0; 
+      margin: 25px auto; 
       box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
       display: block;
   }
-  em { display: block; text-align: center; color: #64748b; font-size: 0.9em; margin-top: -15px; margin-bottom: 30px; font-style: normal; }
+  
+  img[src*="Desktop"] {
+      max-height: 450px;
+      object-fit: contain;
+  }
+
+  p:has(img) em { 
+      display: block; 
+      text-align: center; 
+      color: #64748b; 
+      font-size: 0.9em; 
+      margin-top: -15px; 
+      margin-bottom: 30px; 
+      font-style: normal; 
+  }
   
   ul { padding-left: 20px; }
   li { margin-bottom: 8px; }
   code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9em; color: var(--accent-1); }
-  
-  .page-break { page-break-before: always; }
-  .img-container { text-align: center; margin: 30px 0; }
-  .img-container img { max-height: 400px; max-width: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
-  .img-container em { display: block; margin-top: 10px; color: #64748b; font-size: 0.9em; }
   
   .footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 0.9em; }
 </style>
@@ -99,11 +108,8 @@
 <li><strong>Tablet View (Bedside Care):</strong> Restructures the grid into larger, touch-friendly rows. When doctors are physically at the bedside reviewing a patient&#39;s chart, the interface provides appropriately sized hit targets mapping to rapid clinical workflows.</li>
 <li><strong>Wearable/Mobile View (On-Call Alerts):</strong> Condenses flawlessly into a vertical flex layout. It prioritizes immediate, actionable critical alerts at the very top of the viewport, stacking individual patient cards so that a doctor rushing down a hallway can process a single patient&#39;s deep dive using only one hand, completely eliminating horizontal scrolling.</li>
 </ol>
-<div class="img-container">
-  <img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Desktop.png" alt="Desktop View">
-  <em>Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.</em>
-</div>
-
+<p><img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Desktop.png" alt="Desktop View">
+<em>Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.</em></p>
 <hr>
 <h2>2. Evaluation of Human Factors (HCI I/O, Memory, Reasoning)</h2>
 <p>An exceptional medical interface must account for the cognitive limitations and sensory capabilities of its users, particularly in high-stress, fatigue-inducing environments like an emergency room.</p>
@@ -122,11 +128,8 @@
 </ul>
 <h3>Reasoning and Problem Solving Acceleration</h3>
 <p>Rapid decision-making under intense pressure is supported by establishing visual contextual bounds. Vitals numbers dynamically alter their color the exact millisecond they cross mathematically defined safe thresholds (e.g., an HR &gt; 130 bpm instantly turns bright red). This computationally handles the &quot;pattern recognition&quot; workload, empowering doctors to skip the data-interpretation phase and jump directly into the reasoning and triage phase. Furthermore, by grouping associated metrics intrinsically (visualizing NIBP directly adjacent to SpO2), clinicians can rapidly deduce whether a patient is hypotensive and hypoxic simultaneously, forming a holistic clinical picture in seconds rather than cross-referencing multiple disparate charts.</p>
-<div class="img-container">
-  <img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Tab.png" alt="Tablet View">
-  <em>Figure 2: Responsive Tablet View, demonstrating clustered information.</em>
-</div>
-
+<p><img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Tab.png" alt="Tablet View">
+<em>Figure 2: Responsive Tablet View, demonstrating clustered information.</em></p>
 <hr>
 <h2>3. Analysis of Computer-Related Factors</h2>
 <p>The underlying technical architecture must strictly align with the physical and network constraints of modern healthcare facilities.</p>
@@ -146,19 +149,16 @@
 <p>Hospitals frequently suffer from spotty Wi-Fi networks in structurally dense zones, such as deep Radiology wings or Basement Wards. </p>
 <ul>
 <li><strong>The &quot;Simulate Offline&quot; Protocol:</strong> The dashboard includes an overt offline simulation toggle to demonstrate graceful degradation. When the network connection drops, the UI explicitly grays out (opacity drops and CSS grayscale filters are applied), halting animations.</li>
-<li><strong>Crucial Software Medical Safety:</strong> This fulfills a critical FDA/medical software constraint: a clinician must <em>never</em> make critical decisions assuming vitals are real-time when the connection has actually stalled. The system safely handles asynchronous data loss, visually warning the user that data is &quot;Frozen,&quot; rather than quietly displaying stale, potentially fatal numbers.</li>
+<li><strong>Crucial Software Medical Safety:</strong> This fulfills a critical FDA/medical software constraint: a clinician must <strong>never</strong> make critical decisions assuming vitals are real-time when the connection has actually stalled. The system safely handles asynchronous data loss, visually warning the user that data is &quot;Frozen,&quot; rather than quietly displaying stale, potentially fatal numbers.</li>
 </ul>
-<div class="img-container">
-  <img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Mobile.png" alt="Wearable View">
-  <em>Figure 3: Wearable/Mobile constraints with visible "System Offline" safety state active.</em>
-</div>
-
+<p><img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Mobile.png" alt="Wearable View">
+<em>Figure 3: Wearable/Mobile constraints with visible &quot;System Offline&quot; safety state active.</em></p>
 <hr>
 <h2>4. Enhancement of Usability</h2>
 <p>To polish the user interface from a functional prototype into a professional-grade medical application, several enhancements were driven by established HCI models and ergonomic principles to ensure an exemplary, frictionless user experience.</p>
 <h3>HCI Models Applied</h3>
 <ul>
-<li><strong>GOMS Model (Goals, Operators, Methods, Selection Rules):</strong> The primary operating goal of a clinician approaching a generic monitor is usually: &quot;Find out who needs help right now.&quot; By implementing a top-level, sticky &quot;Critical Alert Banner&quot; that spans the entire width of the display and counts the number of critical patients, the <em>Method</em> length to identify a critical situation drops to a single visual operation. This successfully bypasses the need to linearly and exhaustively scan 20+ individual grid cards to find the anomaly.</li>
+<li><strong>GOMS Model (Goals, Operators, Methods, Selection Rules):</strong> The primary operating goal of a clinician approaching a generic monitor is usually: &quot;Find out who needs help right now.&quot; By implementing a top-level, sticky &quot;Critical Alert Banner&quot; that spans the entire width of the display and counts the number of critical patients, the <strong>Method</strong> length to identify a critical situation drops to a single visual operation. This successfully bypasses the need to linearly and exhaustively scan 20+ individual grid cards to find the anomaly.</li>
 </ul>
 <h3>Ergonomic Principles and Interaction Design</h3>
 <ul>

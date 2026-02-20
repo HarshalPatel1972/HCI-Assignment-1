@@ -72,20 +72,29 @@ const html = `<!DOCTYPE html>
       max-width: 100%; 
       border: 1px solid #e2e8f0; 
       border-radius: 8px; 
-      margin: 25px 0; 
+      margin: 25px auto; 
       box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
       display: block;
   }
-  em { display: block; text-align: center; color: #64748b; font-size: 0.9em; margin-top: -15px; margin-bottom: 30px; font-style: normal; }
+  
+  img[src*="Desktop"] {
+      max-height: 450px;
+      object-fit: contain;
+  }
+
+  p:has(img) em { 
+      display: block; 
+      text-align: center; 
+      color: #64748b; 
+      font-size: 0.9em; 
+      margin-top: -15px; 
+      margin-bottom: 30px; 
+      font-style: normal; 
+  }
   
   ul { padding-left: 20px; }
   li { margin-bottom: 8px; }
   code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9em; color: var(--accent-1); }
-  
-  .page-break { page-break-before: always; }
-  .img-container { text-align: center; margin: 30px 0; }
-  .img-container img { max-height: 400px; max-width: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
-  .img-container em { display: block; margin-top: 10px; color: #64748b; font-size: 0.9em; }
   
   .footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 0.9em; }
 </style>
