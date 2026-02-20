@@ -59,7 +59,7 @@
   
   .page-break { page-break-before: always; }
   .img-container { text-align: center; margin: 30px 0; }
-  .img-container img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+  .img-container img { max-height: 400px; max-width: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
   .img-container em { display: block; margin-top: 10px; color: #64748b; font-size: 0.9em; }
   
   .footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 0.9em; }
@@ -91,83 +91,79 @@
             </div>
         </div>
         <h2>1. Dashboard Design &amp; Implementation (Dashboard)</h2>
-<p>This project features a fully functional, highly responsive, and interactive <strong>Smart Hospital Dashboard</strong> developed using modern web technologies (React via Vite and Tailwind CSS). The dashboard successfully fulfills the core requirements by simultaneously tracking four critical vitals: Heart Rate (HR), Blood Oxygen (SpO2), Non-Invasive Blood Pressure (NIBP), and Temperature across multiple patients. </p>
-<h3>Responsive Multi-device Views</h3>
-<p>The User Interface seamlessly scales across standard hardware typical in a hospital environment:</p>
+<p>The core deliverable is a comprehensive, functional <strong>Smart Hospital Dashboard</strong>, engineered using a modern Vite React application structured with Tailwind CSS. The primary objective of this dashboard is to provide real-time, asynchronous medical telemetry monitoring for an Intensive Care Unit (ICU) environment. It successfully tracks and renders four mission-critical vitals simultaneously across multiple patients: Heart Rate (HR), Blood Oxygen Saturation (SpO2), Non-Invasive Blood Pressure (NIBP), and Core Body Temperature.</p>
+<h3>Responsive Multi-device Architecture</h3>
+<p>Recognizing that clinical staff interact with software across drastically different hardware depending on their immediate workflow, the User Interface (UI) was built with intrinsic fluid responsiveness:</p>
 <ol>
-<li><strong>Desktop/Large Display:</strong> Displays a high-density grid showing all patient metrics on a single screen without needing navigation, perfect for central nursing stations.</li>
-<li><strong>Tablet View:</strong> Restructures for touch navigation with appropriately sized hit targets mapping clinical workflows.</li>
-<li><strong>Wearable/Mobile View:</strong> Condenses perfectly into a vertical flex layout prioritizing immediate critical alerts and single-patient deep dives without any horizontal scrolling.</li>
+<li><strong>Desktop/Large Display (Nursing Stations):</strong> Implements a high-density, multi-column CSS Grid. This allows a charge nurse to monitor up to six patients simultaneously on a single widescreen display without scrolling, acting as a centralized command hub.</li>
+<li><strong>Tablet View (Bedside Care):</strong> Restructures the grid into larger, touch-friendly rows. When doctors are physically at the bedside reviewing a patient&#39;s chart, the interface provides appropriately sized hit targets mapping to rapid clinical workflows.</li>
+<li><strong>Wearable/Mobile View (On-Call Alerts):</strong> Condenses flawlessly into a vertical flex layout. It prioritizes immediate, actionable critical alerts at the very top of the viewport, stacking individual patient cards so that a doctor rushing down a hallway can process a single patient&#39;s deep dive using only one hand, completely eliminating horizontal scrolling.</li>
 </ol>
 <div class="img-container">
   <img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Desktop.png" alt="Desktop View">
   <em>Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.</em>
 </div>
 
-<div class="page-break"></div>
-
 <hr>
 <h2>2. Evaluation of Human Factors (HCI I/O, Memory, Reasoning)</h2>
-<h3>Human I/O Channels</h3>
-<p>The dashboard is designed to heavily utilize human sensory channels to drastically reduce the margin of cognitive error:</p>
+<p>An exceptional medical interface must account for the cognitive limitations and sensory capabilities of its users, particularly in high-stress, fatigue-inducing environments like an emergency room.</p>
+<h3>Human Input/Output Channels</h3>
+<p>The dashboard is meticulously designed to leverage human sensory channels, drastically reducing the margin of cognitive error during triage:</p>
 <ul>
-<li><strong>Visual Filtering:</strong> The interface leverages a clinical dark background (<code>bg-slate-900</code>) with high-contrast, color-coded medical badges. Green indicates stability, yellow indicates warning traits, and red signifies a critical threshold break.</li>
-<li><strong>Pre-attentive Processing:</strong> Critical metrics feature a pulsing visual anomaly (e.g., a scaling heartbeat animation via Tailwind&#39;s <code>animate-pulse</code> and <code>animate-ping</code>). This draws the clinician&#39;s peripheral vision immediately, addressing visually over-stimulated environments.</li>
-<li><strong>Auditory &amp; Haptic Potential:</strong> The top sticky alert banners imply a direct hardware trigger for auditory alarms on nursing stations or haptic vibrations on doctor wearables.</li>
+<li><strong>Visual Filtering against Clutter:</strong> The interface employs a specialized clinical dark background (<code>bg-slate-900</code>). This is not merely an aesthetic choice; it forces high-contrast isolation of the color-coded medical badges. Green universally indicates stability, yellow signals warning traits, and red signifies a critical, life-threatening threshold breach.</li>
+<li><strong>Pre-attentive Processing:</strong> When a patient enters a critical state, the interface utilizes visual anomalies (such as a scaling heartbeat animation via Tailwind&#39;s <code>animate-pulse</code> and <code>animate-ping</code>). This instantly draws the clinician&#39;s peripheral vision, bypassing the need for active scanning in visually over-stimulated environments.</li>
+<li><strong>Auditory &amp; Haptic Potential:</strong> While this iteration focuses on the visual UI, the persistent top-sticky &quot;Alert Banner&quot; is architected to imply a direct hardware trigger for auditory alarms on nursing station monitors or haptic vibrations on a doctor&#39;s smartwatch.</li>
 </ul>
-<h3>Memory Optimization</h3>
+<h3>Memory Optimization (Cognitive Load Reduction)</h3>
 <p>The interface mitigates heavy reliance on short-term working memory by comprehensively applying the heuristic of <strong>Recognition over Recall</strong>:</p>
 <ul>
-<li>Industry-standard Iconography (Lungs for SpO2, Heart for HR, Droplet for NIBP) immediately registers the metric without needing to read textual labels.</li>
-<li>Information is persistently grouped. A doctor does not have to remember a patient&#39;s room number; the ID, Age, and Room act as a persistent header for every vitals box to eliminate cognitive load.</li>
+<li><strong>Universal Iconography:</strong> The use of internationally recognized medical icons (Lungs for SpO2, a Heart for HR, a Blood Droplet for NIBP, and a Thermometer for Temp) allows the brain to immediately register the metric type without spending milliseconds reading and parsing textual labels.</li>
+<li><strong>Persistent Grouping:</strong> A doctor should never have to memorize a patient&#39;s room number while tracking their vitals. The Patient ID, Age, and Room Number act as a persistent header for every individual vitals box, eliminating cognitive load and preventing potentially fatal patient mix-ups.</li>
 </ul>
-<h3>Reasoning and Problem Solving</h3>
-<p>Rapid decision-making under intense pressure is supported via contextual bounds. Vitals numbers visually change color the precise moment they cross mathematically safe thresholds (e.g., HR &gt; 130 bpm turns red). This handles the &quot;pattern recognition&quot; workload computationally, allowing doctors to skip the interpretation phase and jump directly to the reasoning/triage phase. Furthermore, by grouping associated metrics intrinsically (e.g. visualizing NIBP directly adjacent to SpO2), clinicians can rapidly deduce whether a patient is hypotensive and hypoxic simultaneously, forming a complete clinical picture in seconds rather than cross-referencing multiple charts.</p>
+<h3>Reasoning and Problem Solving Acceleration</h3>
+<p>Rapid decision-making under intense pressure is supported by establishing visual contextual bounds. Vitals numbers dynamically alter their color the exact millisecond they cross mathematically defined safe thresholds (e.g., an HR &gt; 130 bpm instantly turns bright red). This computationally handles the &quot;pattern recognition&quot; workload, empowering doctors to skip the data-interpretation phase and jump directly into the reasoning and triage phase. Furthermore, by grouping associated metrics intrinsically (visualizing NIBP directly adjacent to SpO2), clinicians can rapidly deduce whether a patient is hypotensive and hypoxic simultaneously, forming a holistic clinical picture in seconds rather than cross-referencing multiple disparate charts.</p>
 <div class="img-container">
   <img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Tab.png" alt="Tablet View">
   <em>Figure 2: Responsive Tablet View, demonstrating clustered information.</em>
 </div>
 
-<div class="page-break"></div>
-
 <hr>
 <h2>3. Analysis of Computer-Related Factors</h2>
-<h3>Device Suitability</h3>
-<p>Different clinical interfaces are required for diverse physical constraints. The React application uses robust Tailwind CSS Grid algorithms to modify data density automatically:</p>
+<p>The underlying technical architecture must strictly align with the physical and network constraints of modern healthcare facilities.</p>
+<h3>Device Suitability and Rendering Engines</h3>
+<p>Different clinical interfaces are required for diverse physical constraints. The React application uses robust Tailwind CSS Grid algorithms to modify data density automatically without requiring separate applications:</p>
 <ul>
-<li><strong>Central Displays</strong> stream multi-patient data asynchronously, suitable for high-bandwidth processing capabilities.</li>
-<li><strong>Tablets and Wearables</strong> reorganize into single-column feeds, respecting smaller screen constraints and prioritizing immediate actionable alerts over general ward surveillance.</li>
+<li><strong>Central Displays</strong> stream multi-patient data asynchronously, suitable for high-bandwidth processing capabilities typical of wired desktop computers.</li>
+<li><strong>Tablets and Wearables</strong> reorganize into single-column feeds relying on touch interfaces, respecting smaller screen constraints and prioritizing immediate actionable alerts over general ward surveillance.</li>
 </ul>
-<h3>Processing Speed and Memory Load</h3>
-<p>In an ICU context, blocking the main UI thread can critically delay life-saving alerts. To combat this:</p>
+<h3>Processing Speed, Memory Load, and DOM Manipulation</h3>
+<p>In an ICU context, blocking the main UI thread with heavy rendering can critically delay life-saving alerts. To combat this computational bottleneck:</p>
 <ul>
-<li>The dashboard utilizes React&#39;s Virtual DOM optimized rendering rather than forcing standard browser repaints. </li>
-<li>This drastically cuts down local client memory load, ensuring the system can process frequent, high-velocity JSON/WebSocket payloads from hospital infrastructure without browser lag or hanging.</li>
+<li>The dashboard abandons direct DOM manipulation in favor of React&#39;s <strong>Virtual DOM</strong>. This ensures that when a single patient&#39;s heart rate ticks up by 1 bpm, only that specific text node is repainted, rather than forcing the browser to recalculate the entire page layout.</li>
+<li>This optimization drastically cuts down local client memory load, ensuring the system can process frequent, high-velocity JSON or WebSocket payloads from hospital infrastructure without browser lag, memory leaks, or freezing.</li>
 </ul>
-<h3>Network Reliability Simulation</h3>
-<p>Hospitals frequently suffer from spotty Wi-Fi networks in structurally dense zones (e.g., Radiology or Basement Wards). </p>
+<h3>Network Reliability Simulation and Fail-Safes</h3>
+<p>Hospitals frequently suffer from spotty Wi-Fi networks in structurally dense zones, such as deep Radiology wings or Basement Wards. </p>
 <ul>
-<li><strong>The &quot;Simulate Offline&quot; Feature:</strong> The dashboard includes an overt offline simulation toggle. When the network drops, the UI explicitly grays out (opacity drops and grayscale filters are applied) and explicitly warns that the data is &quot;Frozen&quot;.</li>
-<li>This fulfills a critical software medical safety constraint: a clinician must <em>never</em> make critical decisions assuming vitals are real-time when the connection has actually stalled. The system safely handles asynchronous data loss without crashing the main application state.</li>
+<li><strong>The &quot;Simulate Offline&quot; Protocol:</strong> The dashboard includes an overt offline simulation toggle to demonstrate graceful degradation. When the network connection drops, the UI explicitly grays out (opacity drops and CSS grayscale filters are applied), halting animations.</li>
+<li><strong>Crucial Software Medical Safety:</strong> This fulfills a critical FDA/medical software constraint: a clinician must <em>never</em> make critical decisions assuming vitals are real-time when the connection has actually stalled. The system safely handles asynchronous data loss, visually warning the user that data is &quot;Frozen,&quot; rather than quietly displaying stale, potentially fatal numbers.</li>
 </ul>
-<div class="img-container" style="max-width: 400px; margin: 0 auto;">
+<div class="img-container">
   <img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Mobile.png" alt="Wearable View">
   <em>Figure 3: Wearable/Mobile constraints with visible "System Offline" safety state active.</em>
 </div>
 
-<div class="page-break"></div>
-
 <hr>
 <h2>4. Enhancement of Usability</h2>
-<p>To finalize the UI, several enhancements were driven by established HCI models and ergonomic principles to ensure an exemplary user experience:</p>
+<p>To polish the user interface from a functional prototype into a professional-grade medical application, several enhancements were driven by established HCI models and ergonomic principles to ensure an exemplary, frictionless user experience.</p>
 <h3>HCI Models Applied</h3>
 <ul>
-<li><strong>GOMS Model (Goals, Operators, Methods, Selection Rules):</strong> The primary goal of a clinician approaching a screen is usually &quot;Find who needs help.&quot; By adding a top sticky &quot;Alert Banner&quot; spanning the width of the display, the <em>Method</em> length to identify a critical patient drops to a single visual operation, bypassing the need to linearly scan 20+ individual grid cards.</li>
+<li><strong>GOMS Model (Goals, Operators, Methods, Selection Rules):</strong> The primary operating goal of a clinician approaching a generic monitor is usually: &quot;Find out who needs help right now.&quot; By implementing a top-level, sticky &quot;Critical Alert Banner&quot; that spans the entire width of the display and counts the number of critical patients, the <em>Method</em> length to identify a critical situation drops to a single visual operation. This successfully bypasses the need to linearly and exhaustively scan 20+ individual grid cards to find the anomaly.</li>
 </ul>
-<h3>Ergonomic Principles</h3>
+<h3>Ergonomic Principles and Interaction Design</h3>
 <ul>
-<li><strong>Visual Ergonomics:</strong> Constant glaring white screens cause severe eye fatigue for night-shift clinicians. Our use of Deep Space Dark themes (<code>bg-slate-900</code> surface colors) heavily reduces blue-light eye strain over a 12-hour shift.</li>
-<li><strong>Fitts&#39;s Law:</strong> Interactive elements (like the sidebar navigation items and the network toggle) feature generous padding, increasing the physical target area. This makes rapid touch interactions on tablets and mobile phones reliably faster and significantly less prone to mis-clicks during localized emergencies.</li>
+<li><strong>Visual Ergonomics against Eye Strain:</strong> Constant exposure to glaring white screens causes severe eye fatigue and &quot;visual snow&quot; for night-shift clinicians working 12-hour rotations. Our deliberate implementation of a Deep Space Dark theme (<code>#0f172a</code> base colors) heavily reduces blue-light emission and actively combats eye strain while maintaining WCAG contrast ratios for the brightly colored vitals.</li>
+<li><strong>Fitts&#39;s Law in Emergency Scenarios:</strong> Interactive elements, such as the sidebar navigation items and the network fail-safe toggle, feature generous padding. According to Fitts&#39;s Law, increasing the physical target area reduces the time required to move to that target. This makes rapid touch interactions on tablets and mobile phones reliably faster and significantly less prone to dangerous mis-clicks during chaotic localized emergencies.</li>
 </ul>
 <hr>
 
