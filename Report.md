@@ -1,11 +1,3 @@
-# HCI Assignment 1: Smart Hospital Dashboard
-
-**Name:** Harshal Patel  
-**UID:** 22BAI71187  
-**Section/Class:** 22AML- 6A  
-**Course:** BE-CSE-AIML  
-
----
 
 ## 1. Dashboard Design & Implementation (Dashboard)
 This project features a fully functional, highly responsive, and interactive **Smart Hospital Dashboard** developed using modern web technologies (React via Vite and Tailwind CSS). The dashboard successfully fulfills the core requirements by simultaneously tracking four critical vitals: Heart Rate (HR), Blood Oxygen (SpO2), Non-Invasive Blood Pressure (NIBP), and Temperature across multiple patients. 
@@ -16,7 +8,7 @@ The User Interface seamlessly scales across standard hardware typical in a hospi
 2. **Tablet View:** Restructures for touch navigation with appropriately sized hit targets mapping clinical workflows.
 3. **Wearable/Mobile View:** Condenses perfectly into a vertical flex layout prioritizing immediate critical alerts and single-patient deep dives without any horizontal scrolling.
 
-![Desktop View](Desktop - 1.png)
+![Desktop View](desktop-1.png)
 *Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.*
 
 ---
@@ -37,7 +29,7 @@ The interface mitigates heavy reliance on short-term working memory by comprehen
 ### Reasoning and Problem Solving
 Rapid decision-making under intense pressure is supported via contextual bounds. Vitals numbers visually change color the precise moment they cross mathematically safe thresholds (e.g., HR > 130 bpm turns red). This handles the "pattern recognition" workload computationally, allowing doctors to skip the interpretation phase and jump directly to the reasoning/triage phase.
 
-![Tablet View](Tab -1.png)
+![Tablet View](tab-1.png)
 *Figure 2: Responsive Tablet View, demonstrating clustered information.*
 
 ---
@@ -59,7 +51,7 @@ Hospitals frequently suffer from spotty Wi-Fi networks in structurally dense zon
 * **The "Simulate Offline" Feature:** The dashboard includes an overt offline simulation toggle. When the network drops, the UI explicitly grays out (opacity drops and grayscale filters are applied) and explicitly warns that the data is "Frozen".
 * This fulfills a critical software medical safety constraint: a clinician must *never* make critical decisions assuming vitals are real-time when the connection has actually stalled.
 
-![Wearable View](Mobile -1.png)
+![Wearable View](mobile-1.png)
 *Figure 3: Wearable/Mobile constraints with visible "System Offline" safety state active.*
 
 ---
@@ -77,11 +69,4 @@ To finalize the UI, several enhancements were driven by established HCI models a
 
 ---
 
-## 5. Deployment and Codebase
-The codebase has been deployed live using Vercel CI/CD for instant accessibility.
 
-* **Live Demo (Vercel):** [https://smart-hospital-eight.vercel.app/](https://smart-hospital-eight.vercel.app/)
-* **Source Code (GitHub):** [https://github.com/HarshalPatel1972/HCI-Assignment-1](https://github.com/HarshalPatel1972/HCI-Assignment-1)
-
----
-*End of Report*

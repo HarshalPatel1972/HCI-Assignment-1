@@ -111,7 +111,6 @@ const html = `<!DOCTYPE html>
             </div>
         </div>
         ${htmlContent}
-        <div class="footer">End of Report • Generated Output</div>
     </div>
 </body>
 </html>`;
