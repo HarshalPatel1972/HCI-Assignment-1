@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+      --primary: #1e293b;
+      --secondary: #334155;
+      --accent: #3b82f6;
+      --bg-color: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+  }
+  body { 
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+      line-height: 1.7; 
+      padding: 20px 40px; 
+      color: var(--text);
+      background-color: var(--bg-color);
+      margin: 0;
+  }
+  .report-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--surface);
+      padding: 50px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  }
+  .header-card {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+  }
+  .header-card h1 { color: white; margin-top: 0; border: none; font-size: 28px; }
+  .student-details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; font-size: 15px; }
+  .student-details p { margin: 5px 0; opacity: 0.9; }
+  
+  h1, h2, h3 { color: var(--primary); }
+  h2 { border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-top: 40px; }
+  h3 { color: var(--secondary); margin-top: 25px; }
+  
+  img { 
+      max-width: 100%; 
+      border: 1px solid #e2e8f0; 
+      border-radius: 8px; 
+      margin: 25px 0; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      display: block;
+  }
+  em { display: block; text-align: center; color: #64748b; font-size: 0.9em; margin-top: -15px; margin-bottom: 30px; font-style: normal; }
+  
+  ul { padding-left: 20px; }
+  li { margin-bottom: 8px; }
+  code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9em; color: var(--accent); }
+  
+  .footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 0.9em; }
+</style>
+</head>
+<body>
+    <div class="report-container">
+        <div class="header-card">
+            <h1>HCI Assignment 1: Smart Hospital Dashboard</h1>
+            <div class="student-details">
+                <div>
+                    <p><strong>Name:</strong> Harshal Patel</p>
+                    <p><strong>UID:</strong> 22BAI71187</p>
+                </div>
+                <div>
+                    <p><strong>Section/Class:</strong> 22AML- 6A</p>
+                    <p><strong>Course:</strong> 22AML6</p>
+                </div>
+            </div>
+        </div>
+        <h1>Task 1: Overview of the Smart Hospital Dashboard</h1>
+<p><strong>Course:</strong> 22AML6<br><strong>Assignment:</strong> HCI Assignment 1 - Smart Hospital Dashboard</p>
+<h2>1. Dashboard Design &amp; Implementation</h2>
+<p>This assignment fulfills the requirement of creating a Smart Hospital Dashboard. The system consists of an interactive UI built via HTML, CSS, and JS. It simulates real-time patient monitoring tracking 4 major vitals: Heart Rate (HR), Blood Oxygen (SpO2), Non-Invasive Blood Pressure (NIBP), and Temperature.</p>
+<h3>Responsive Multi-device Views</h3>
+<p>The UI seamlessly scales across standard hardware typical in a hospital environment:</p>
+<ol>
+<li><strong>Desktop/Large Display:</strong> Displays a high-density grid showing all patient metrics on a single screen without needing navigation, perfect for central nursing stations.</li>
+<li><strong>Tablet View:</strong> Restructures for touch navigation (e.g., larger padding, simplified menus), suitable for physicians during ward rounds.</li>
+<li><strong>Wearable/Mobile View:</strong> Focuses primarily on critical alerts and single-patient deep dives.</li>
+</ol>
+<p><img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/desktop_view.png" alt="Desktop View">
+<em>Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.</em></p>
+<hr>
+<h2>2. Evaluation of Human Factors (HCI I/O, Memory, Reasoning)</h2>
+<h3>Human I/O Channels</h3>
+<p>The dashboard is designed to heavily utilize human sensory channels to reduce the margin of error:</p>
+<ul>
+<li><strong>Visual Filtering:</strong> The interface leverages a dark background (<code>#0f111a</code>) with high-contrast, color-coded medical badges. Green indicates stability, yellow indicates warning traits, and red signifies a critical threshold break.</li>
+<li><strong>Pre-attentive Processing:</strong> Critical metrics feature a pulsing visual anomaly (e.g., a scaling heartbeat animation). This draws the peripheral vision immediately, addressing visually over-stimulated clinicians.</li>
+<li><strong>Auditory &amp; Haptic Potential:</strong> Alert banners at the top imply a direct trigger for auditory alarms on nursing stations or haptic vibration on doctor wearables.</li>
+</ul>
+<h3>Memory Optimization</h3>
+<p>The interface mitigates heavy reliance on short-term working memory by applying the heuristic of <strong>Recognition over Recall</strong>:</p>
+<ul>
+<li>Iconography (lungs for SpO2, heart for HR) immediately registers the metric without reading textual labels.</li>
+<li>Information is persistently grouped. A doctor does not have to remember a patient&#39;s room number; the ID, Age, and Room act as a persistent header for every vitals box.</li>
+</ul>
+<h3>Reasoning and Problem Solving</h3>
+<p>Rapid decision-making under pressure is supported via contextual bounds. Vitals numbers visually change color the moment they cross safe thresholds (e.g., HR &gt; 130 bpm turns red). This handles the &quot;pattern recognition&quot; workload, allowing doctors to skip the interpretation phase and jump directly to the reasoning/triage phase.</p>
+<p><img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/tablet_view.png" alt="Tablet View">
+<em>Figure 2: Responsive Tablet View, demonstrating clustered information.</em></p>
+<hr>
+<h2>3. Analysis of Computer-Related Factors</h2>
+<h3>Device Suitability</h3>
+<p>Different interfaces are required for diverse physical constraints. The solution uses responsive CSS Grid algorithms to modify data density:</p>
+<ul>
+<li><strong>Central Displays</strong> stream large packets of data asynchronously, suitable for high processing capabilities.</li>
+<li><strong>Tablets and Wearables</strong> reorganize into single-column feeds, respecting smaller screen constraints and prioritizing immediate actionable alerts.</li>
+</ul>
+<h3>Processing Speed and Memory Load</h3>
+<p>In an ICU context, blocking the main thread can delay life-saving alerts. To combat this:</p>
+<ul>
+<li>The dashboard utilizes targeted DOM DOM manipulation (via <code>getElementById()</code>) rather than re-rendering the entire patient list dynamically. </li>
+<li>This drastically cuts down local system memory load, ensuring the system can process frequent, high-velocity JSON/WebSocket payloads from hospital infrastructure without browser lag.</li>
+</ul>
+<h3>Network Reliability Simulation</h3>
+<p>Hospitals frequently suffer from spotty Wi-Fi networks in structurally dense zones (like radiology). </p>
+<ul>
+<li><strong>The &quot;Simulate Offline&quot; Feature:</strong> The dashboard includes an offline toggle. When network drops, the UI explicitly grays out (opacity drops to <code>0.6</code> and <code>grayscale</code> filter applied) and warns that the data is &quot;Frozen&quot;.</li>
+<li>This is a critical safety constraint: a clinician must <em>never</em> make decisions assuming vitals are real-time when the connection is actually stalled.</li>
+</ul>
+<p><img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/wearable_view.png" alt="Wearable View">
+<em>Figure 3: Wearable/Mobile constraints with visible &quot;System Offline&quot; safety state active.</em></p>
+<hr>
+<h2>4. Enhancement of Usability</h2>
+<p>To finalize the UI, several enhancements were driven by established HCI models and ergonomic principles:</p>
+<h3>HCI Models Applied</h3>
+<ul>
+<li><strong>GOMS Model (Goals, Operators, Methods, Selection Rules):</strong> The primary goal of a clinician approaching a screen is usually &quot;Find who needs help.&quot; By adding a top sticky &quot;Alert Banner&quot; spanning the width of the display, the <em>Method</em> length to identify a critical patient drops to a single visual operation, bypassing the need to scan 20+ individual grid cards.</li>
+</ul>
+<h3>Ergonomic Principles</h3>
+<ul>
+<li><strong>Visual Ergonomics:</strong> Constant glaring white screens cause severe eye fatigue for night-shift clinicians. Our use of Deep Space Dark themes (<code>#1e2130</code> surface colors) heavily reduces blue-light eye strain.</li>
+<li><strong>Fitts&#39;s Law:</strong> Interactive elements (like the navigation items and the network toggle) feature generous padding, increasing the target area. This makes rapid touch interactions on tablets reliably faster and less prone to mis-clicks during emergencies.</li>
+</ul>
+<hr>
+<p><em>End of Report</em></p>
+
+        <div class="footer">End of Report • Generated Output</div>
+    </div>
+</body>
+</html>
