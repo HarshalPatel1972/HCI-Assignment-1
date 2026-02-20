@@ -8,8 +8,12 @@ The User Interface seamlessly scales across standard hardware typical in a hospi
 2. **Tablet View:** Restructures for touch navigation with appropriately sized hit targets mapping clinical workflows.
 3. **Wearable/Mobile View:** Condenses perfectly into a vertical flex layout prioritizing immediate critical alerts and single-patient deep dives without any horizontal scrolling.
 
-![Desktop View](desktop-1.png)
-*Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.*
+<div class="img-container">
+  <img src="Desktop.png" alt="Desktop View">
+  <em>Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.</em>
+</div>
+
+<div class="page-break"></div>
 
 ---
 
@@ -27,10 +31,14 @@ The interface mitigates heavy reliance on short-term working memory by comprehen
 * Information is persistently grouped. A doctor does not have to remember a patient's room number; the ID, Age, and Room act as a persistent header for every vitals box to eliminate cognitive load.
 
 ### Reasoning and Problem Solving
-Rapid decision-making under intense pressure is supported via contextual bounds. Vitals numbers visually change color the precise moment they cross mathematically safe thresholds (e.g., HR > 130 bpm turns red). This handles the "pattern recognition" workload computationally, allowing doctors to skip the interpretation phase and jump directly to the reasoning/triage phase.
+Rapid decision-making under intense pressure is supported via contextual bounds. Vitals numbers visually change color the precise moment they cross mathematically safe thresholds (e.g., HR > 130 bpm turns red). This handles the "pattern recognition" workload computationally, allowing doctors to skip the interpretation phase and jump directly to the reasoning/triage phase. Furthermore, by grouping associated metrics intrinsically (e.g. visualizing NIBP directly adjacent to SpO2), clinicians can rapidly deduce whether a patient is hypotensive and hypoxic simultaneously, forming a complete clinical picture in seconds rather than cross-referencing multiple charts.
 
-![Tablet View](tab-1.png)
-*Figure 2: Responsive Tablet View, demonstrating clustered information.*
+<div class="img-container">
+  <img src="Tab.png" alt="Tablet View">
+  <em>Figure 2: Responsive Tablet View, demonstrating clustered information.</em>
+</div>
+
+<div class="page-break"></div>
 
 ---
 
@@ -49,10 +57,14 @@ In an ICU context, blocking the main UI thread can critically delay life-saving 
 ### Network Reliability Simulation
 Hospitals frequently suffer from spotty Wi-Fi networks in structurally dense zones (e.g., Radiology or Basement Wards). 
 * **The "Simulate Offline" Feature:** The dashboard includes an overt offline simulation toggle. When the network drops, the UI explicitly grays out (opacity drops and grayscale filters are applied) and explicitly warns that the data is "Frozen".
-* This fulfills a critical software medical safety constraint: a clinician must *never* make critical decisions assuming vitals are real-time when the connection has actually stalled.
+* This fulfills a critical software medical safety constraint: a clinician must *never* make critical decisions assuming vitals are real-time when the connection has actually stalled. The system safely handles asynchronous data loss without crashing the main application state.
 
-![Wearable View](mobile-1.png)
-*Figure 3: Wearable/Mobile constraints with visible "System Offline" safety state active.*
+<div class="img-container" style="max-width: 400px; margin: 0 auto;">
+  <img src="Mobile.png" alt="Wearable View">
+  <em>Figure 3: Wearable/Mobile constraints with visible "System Offline" safety state active.</em>
+</div>
+
+<div class="page-break"></div>
 
 ---
 

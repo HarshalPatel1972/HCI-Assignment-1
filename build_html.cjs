@@ -82,6 +82,11 @@ const html = `<!DOCTYPE html>
   li { margin-bottom: 8px; }
   code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9em; color: var(--accent-1); }
   
+  .page-break { page-break-before: always; }
+  .img-container { text-align: center; margin: 30px 0; }
+  .img-container img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+  .img-container em { display: block; margin-top: 10px; color: #64748b; font-size: 0.9em; }
+  
   .footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 0.9em; }
 </style>
 </head>

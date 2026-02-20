@@ -57,6 +57,11 @@
   li { margin-bottom: 8px; }
   code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9em; color: var(--accent-1); }
   
+  .page-break { page-break-before: always; }
+  .img-container { text-align: center; margin: 30px 0; }
+  .img-container img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+  .img-container em { display: block; margin-top: 10px; color: #64748b; font-size: 0.9em; }
+  
   .footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 0.9em; }
 </style>
 </head>
@@ -94,8 +99,13 @@
 <li><strong>Tablet View:</strong> Restructures for touch navigation with appropriately sized hit targets mapping clinical workflows.</li>
 <li><strong>Wearable/Mobile View:</strong> Condenses perfectly into a vertical flex layout prioritizing immediate critical alerts and single-patient deep dives without any horizontal scrolling.</li>
 </ol>
-<p><img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/desktop-1.png" alt="Desktop View">
-<em>Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.</em></p>
+<div class="img-container">
+  <img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Desktop.png" alt="Desktop View">
+  <em>Figure 1: Desktop / Large Display grid layout simulating real-time monitoring.</em>
+</div>
+
+<div class="page-break"></div>
+
 <hr>
 <h2>2. Evaluation of Human Factors (HCI I/O, Memory, Reasoning)</h2>
 <h3>Human I/O Channels</h3>
@@ -112,9 +122,14 @@
 <li>Information is persistently grouped. A doctor does not have to remember a patient&#39;s room number; the ID, Age, and Room act as a persistent header for every vitals box to eliminate cognitive load.</li>
 </ul>
 <h3>Reasoning and Problem Solving</h3>
-<p>Rapid decision-making under intense pressure is supported via contextual bounds. Vitals numbers visually change color the precise moment they cross mathematically safe thresholds (e.g., HR &gt; 130 bpm turns red). This handles the &quot;pattern recognition&quot; workload computationally, allowing doctors to skip the interpretation phase and jump directly to the reasoning/triage phase.</p>
-<p><img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/tab-1.png" alt="Tablet View">
-<em>Figure 2: Responsive Tablet View, demonstrating clustered information.</em></p>
+<p>Rapid decision-making under intense pressure is supported via contextual bounds. Vitals numbers visually change color the precise moment they cross mathematically safe thresholds (e.g., HR &gt; 130 bpm turns red). This handles the &quot;pattern recognition&quot; workload computationally, allowing doctors to skip the interpretation phase and jump directly to the reasoning/triage phase. Furthermore, by grouping associated metrics intrinsically (e.g. visualizing NIBP directly adjacent to SpO2), clinicians can rapidly deduce whether a patient is hypotensive and hypoxic simultaneously, forming a complete clinical picture in seconds rather than cross-referencing multiple charts.</p>
+<div class="img-container">
+  <img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Tab.png" alt="Tablet View">
+  <em>Figure 2: Responsive Tablet View, demonstrating clustered information.</em>
+</div>
+
+<div class="page-break"></div>
+
 <hr>
 <h2>3. Analysis of Computer-Related Factors</h2>
 <h3>Device Suitability</h3>
@@ -133,10 +148,15 @@
 <p>Hospitals frequently suffer from spotty Wi-Fi networks in structurally dense zones (e.g., Radiology or Basement Wards). </p>
 <ul>
 <li><strong>The &quot;Simulate Offline&quot; Feature:</strong> The dashboard includes an overt offline simulation toggle. When the network drops, the UI explicitly grays out (opacity drops and grayscale filters are applied) and explicitly warns that the data is &quot;Frozen&quot;.</li>
-<li>This fulfills a critical software medical safety constraint: a clinician must <em>never</em> make critical decisions assuming vitals are real-time when the connection has actually stalled.</li>
+<li>This fulfills a critical software medical safety constraint: a clinician must <em>never</em> make critical decisions assuming vitals are real-time when the connection has actually stalled. The system safely handles asynchronous data loss without crashing the main application state.</li>
 </ul>
-<p><img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/mobile-1.png" alt="Wearable View">
-<em>Figure 3: Wearable/Mobile constraints with visible &quot;System Offline&quot; safety state active.</em></p>
+<div class="img-container" style="max-width: 400px; margin: 0 auto;">
+  <img src="file:///C:/Users/Harshal Patel/Desktop/hci-shi/ASSIGNMENT/Mobile.png" alt="Wearable View">
+  <em>Figure 3: Wearable/Mobile constraints with visible "System Offline" safety state active.</em>
+</div>
+
+<div class="page-break"></div>
+
 <hr>
 <h2>4. Enhancement of Usability</h2>
 <p>To finalize the UI, several enhancements were driven by established HCI models and ergonomic principles to ensure an exemplary user experience:</p>
