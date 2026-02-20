@@ -28,10 +28,12 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <style>
+  @page { margin: 0; size: auto; }
   :root {
-      --primary: #1e293b;
+      --primary: #0f172a;
       --secondary: #334155;
-      --accent: #3b82f6;
+      --accent-1: #0ea5e9;
+      --accent-2: #8b5cf6;
       --bg-color: #f8fafc;
       --surface: #ffffff;
       --text: #334155;
@@ -39,26 +41,24 @@ const html = `<!DOCTYPE html>
   body { 
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
       line-height: 1.7; 
-      padding: 20px 40px; 
       color: var(--text);
-      background-color: var(--bg-color);
+      background-color: var(--surface);
       margin: 0;
+      padding: 15mm;
   }
   .report-container {
       max-width: 900px;
       margin: 0 auto;
       background-color: var(--surface);
-      padding: 50px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
   }
   .header-card {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent-1));
       color: white;
-      padding: 30px;
-      border-radius: 10px;
+      padding: 35px 40px;
+      border-radius: 12px;
       margin-bottom: 40px;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.2);
+      border-bottom: 4px solid var(--accent-2);
   }
   .header-card h1 { color: white; margin-top: 0; border: none; font-size: 28px; }
   .student-details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; font-size: 15px; }
@@ -80,7 +80,7 @@ const html = `<!DOCTYPE html>
   
   ul { padding-left: 20px; }
   li { margin-bottom: 8px; }
-  code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9em; color: var(--accent); }
+  code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9em; color: var(--accent-1); }
   
   .footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 0.9em; }
 </style>
@@ -106,7 +106,7 @@ const html = `<!DOCTYPE html>
                 </p>
                 <p style="margin: 8px 0 0; font-size: 14px;">
                     <strong><span style="display:inline-block; width: 60px;">Live UI:</span></strong> 
-                    <a href="https://hci-assignment-1.vercel.app" style="color: #93c5fd; text-decoration: none;">hci-assignment-1.vercel.app</a>
+                    <a href="https://smart-hospital-eight.vercel.app/" style="color: #67e8f9; text-decoration: none;">smart-hospital-eight.vercel.app</a>
                 </p>
             </div>
         </div>
